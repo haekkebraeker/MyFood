@@ -1,39 +1,30 @@
-﻿using MongoDB.Bson;
-using MongoDB.Bson.Serialization;
-using MongoDB.Bson.Serialization.Attributes;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using Newtonsoft.Json;
 
 namespace MyFood.Models
 {
-  public class Product
-  {
-    [BsonId]
+    public struct ProductList
+    {
+        [JsonProperty("Produkte")]
+        public List<Product> Produkte { get; set; }
+    }
+    public struct Product
+    {
         [JsonProperty("EAN")]
-        public string EAN { get; private set; }
+        public string EAN { get; set; }
         [JsonProperty("MHD")]
-        public DateTime MHD { get; private set; }
+        public DateTime MHD { get; set; }
         [JsonProperty("ID")]
-        public int ID { get; private set; }
+        public int ID { get; set; }
         [JsonProperty("Name")]
-        public string Name { get; private set; }
+        public string Name { get; set; }
+    }
+    // Usage (read):
+    //string json = File.ReadAllText("./JSON/Product.json");
+    //var product = JsonConvert.DeserializeObject<ProductList>(json);
 
-        public Product Serialize(BsonDocument doc)
-    {
-      Product prod = BsonSerializer.Deserialize<Product>(doc);
-      return prod;
-    }
-    public List<Product> Serialize(List<BsonDocument> docs)
-    {
-      List<Product> actions = new List<Product>();
-      foreach (var doc in docs)
-      {
-        Product prod = BsonSerializer.Deserialize<Product>(doc);
-        actions.Add(prod);
-      }
-      return actions;
-    }
-  }
+    // Usage (write)
+    // #1. Lesen + bearbeiten
+    // File.WriteAllText("./JSON/Product.json", JsonConvert.SerializeObject(ProductList, Formatting.Indented));
 }
