@@ -4,19 +4,23 @@ using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace MyFood.Models
 {
   class Product
   {
     [BsonId]
-    public ObjectId Id { get; set; }
-    // European Article No - einzigartige Artikelnr (Barcode)
-    public string EAN { get; set; }
-    // Mindesthaltbarkeitdatum
-    public string MHD { get; set; }
+        [JsonProperty("EAN")]
+        public string EAN { get; private set; }
+        [JsonProperty("MHD")]
+        public DateTime MHD { get; private set; }
+        [JsonProperty("ID")]
+        public int ID { get; private set; }
+        [JsonProperty("Name")]
+        public string Name { get; private set; }
 
-    public Product Serialize(BsonDocument doc)
+        public Product Serialize(BsonDocument doc)
     {
       Product prod = BsonSerializer.Deserialize<Product>(doc);
       return prod;
