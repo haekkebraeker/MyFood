@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MyFood.Models;
 
 namespace MyFood.App.Droid.Services
 {
@@ -21,8 +22,8 @@ namespace MyFood.App.Droid.Services
       var user = FirebaseAuth.Instance.CurrentUser;
       if (FirebaseAuth.Instance.CurrentUser != null)
       {
-        await Songr.Controller.UserController.GetUser(user.Uid, true);
-        Songr.Songr.ApiKey = user.GetIdToken(false).Result.ToString();
+        await MyFood.Controller.UserController.GetUser(user.Uid, true);
+        MyFood.Settings.ApiKey = user.GetIdToken(false).Result.ToString();
         return true;
       }
       return user != null;
@@ -31,10 +32,9 @@ namespace MyFood.App.Droid.Services
     {
       try
       {
-        await FirebaseAuth.Instance.SignInWithEmailAndPasswordAsync(User.ThisUser.EMail, userPass);
+        await FirebaseAuth.Instance.SignInWithEmailAndPasswordAsync(User.ThisUser.Mail, userPass);
         var user = await FirebaseAuth.Instance.CreateUserWithEmailAndPasswordAsync(email, pass);
         string uid = user.User.Uid;
-        await FirebaseAuth.Instance.SignInWithEmailAndPasswordAsync(User.ThisUser.EMail, userPass);
         user.User.GetIdToken(false).Result.ToString();
         return uid;
       }
@@ -57,8 +57,8 @@ namespace MyFood.App.Droid.Services
       {
         var user = await Firebase.Auth.FirebaseAuth.Instance.SignInWithEmailAndPasswordAsync(email, password);
         var token = user.User.GetIdToken(false).Result.ToString();
-        await Songr.Controller.UserController.GetUser(user.User.Uid, true);
-        Songr.Songr.ApiKey = token;
+        await MyFood.Controller.UserController.GetUser(user.User.Uid, true);
+        MyFood.Settings.ApiKey = token;
         return token;
       }
       catch (FirebaseAuthInvalidUserException e)
@@ -81,7 +81,7 @@ namespace MyFood.App.Droid.Services
       try
       {
         Firebase.Auth.FirebaseAuth.Instance.SignOut();
-        Songr.Songr.ApiKey = null;
+        MyFood.Settings.ApiKey = null;
         return true;
       }
       catch (Exception)

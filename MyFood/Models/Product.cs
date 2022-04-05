@@ -7,7 +7,7 @@ using System.Text;
 
 namespace MyFood.Models
 {
-  class Product
+  public class Product
   {
     [BsonId]
     public ObjectId Id { get; set; }

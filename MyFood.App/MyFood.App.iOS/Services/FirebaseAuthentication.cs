@@ -16,8 +16,8 @@ namespace MyFood.App.iOS.Services
       var user = Auth.DefaultInstance.CurrentUser;
       if (Auth.DefaultInstance.CurrentUser != null)
       {
-        Songr.Songr.ApiKey = await user.GetIdTokenAsync();
-        await Songr.Controller.UserController.GetUser(user.Uid, true);
+        MyFood.Settings.ApiKey = await user.GetIdTokenAsync();
+        await MyFood.Controller.UserController.GetUser(user.Uid, true);
         return true;
       }
       return false;
@@ -26,12 +26,12 @@ namespace MyFood.App.iOS.Services
     {
       try
       {
-        await Auth.DefaultInstance.SignInWithPasswordAsync(Songr.Models.User.ThisUser.EMail, adminPass);
+        await Auth.DefaultInstance.SignInWithPasswordAsync(MyFood.Models.User.ThisUser.Mail, adminPass);
         await Auth.DefaultInstance.CreateUserAsync(email, pass);
         var user = Auth.DefaultInstance.CurrentUser;
         string uid = user.Uid;
-        await Auth.DefaultInstance.SignInWithPasswordAsync(Songr.Models.User.ThisUser.EMail, adminPass);
-        Songr.Songr.ApiKey = await user.GetIdTokenAsync();
+        await Auth.DefaultInstance.SignInWithPasswordAsync(MyFood.Models.User.ThisUser.Mail, adminPass);
+        MyFood.Settings.ApiKey = await user.GetIdTokenAsync();
         return uid;
       }
       catch (NSErrorException ex)
@@ -53,8 +53,8 @@ namespace MyFood.App.iOS.Services
       try
       {
         user = await Auth.DefaultInstance.SignInWithPasswordAsync(email, password);
-        Songr.Songr.ApiKey = await user.User.GetIdTokenAsync();
-        await Songr.Controller.UserController.GetUser(user.User.Uid, true);
+        MyFood.Settings.ApiKey = await user.User.GetIdTokenAsync();
+        await MyFood.Controller.UserController.GetUser(user.User.Uid, true);
       }
       catch (ArgumentNullException)
       {

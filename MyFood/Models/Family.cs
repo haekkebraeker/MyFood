@@ -7,7 +7,7 @@ using System.Text;
 
 namespace MyFood.Models
 {
-  class Family
+  public class Family
   {
     [BsonId]
     public ObjectId Id { get; set; }
