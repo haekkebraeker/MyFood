@@ -13,6 +13,7 @@ namespace MyFood.App
             InitializeComponent();
             Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
             Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
+            Routing.RegisterRoute(nameof(RemoveItemPage), typeof(RemoveItemPage));
         }
         /*
         void ZXingScannerView_OnScanResult(ZXing.Result result)
