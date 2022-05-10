@@ -13,7 +13,7 @@
             <Label Text="Description" FontSize="Medium" />
             <Editor Text="{Binding EAN, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
             <Label Text="Anzahl" FontSize="Medium" />
-            <DatePicker Date="{Binding Anzahl}" />
+            <Editor Text="{Binding Anzahl}" Keyboard="Numeric"/>
             <Label Text="Ablaufdatum" FontSize="Medium" />
             <DatePicker Date="{Binding Ablaufdatum}" />
             <StackLayout Orientation="Horizontal">
