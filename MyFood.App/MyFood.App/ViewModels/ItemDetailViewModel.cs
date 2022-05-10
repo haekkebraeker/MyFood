@@ -11,7 +11,7 @@ namespace MyFood.App.ViewModels
   {
     private string itemId;
     private string text;
-    private string description;
+    private string ean;
         private DateTime ablaufdatum;
         public string Id { get; set; }
 
@@ -21,10 +21,10 @@ namespace MyFood.App.ViewModels
       set => SetProperty(ref text, value);
     }
 
-    public string Description
+    public string EAN
     {
-      get => description;
-      set => SetProperty(ref description, value);
+      get => ean;
+      set => SetProperty(ref ean, value);
     }
     public DateTime Ablaufdatum
     {
@@ -52,7 +52,7 @@ namespace MyFood.App.ViewModels
         var item = await DataStore.GetItemAsync(itemId);
         Id = item.Id;
         Text = item.Text;
-        Description = item.Description;
+                EAN = item.EAN;
                 Ablaufdatum = item.Ablaufdatum;
             }
       catch (Exception)
