@@ -6,14 +6,14 @@ using Xamarin.Forms;
 
 namespace MyFood.App
 {
-  public partial class AppShell : Xamarin.Forms.Shell
-  {
-    public AppShell()
+    public partial class AppShell : Xamarin.Forms.Shell
     {
-      InitializeComponent();
-      Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
-      Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
-    }
+        public AppShell()
+        {
+            InitializeComponent();
+            Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
+            Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
+        }
         /*
         void ZXingScannerView_OnScanResult(ZXing.Result result)
         {

@@ -14,12 +14,8 @@ namespace MyFood.App.Services
     {
       items = new List<Item>()
             {
-                new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Second item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Third item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." }
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Kartoffeln", EAN="4104420138780", Ablaufdatum=DateTime.Today.AddDays(3) },
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Zitronen", EAN="4300175342575", Ablaufdatum=DateTime.Today.AddDays(14) }
             };
     }
 
