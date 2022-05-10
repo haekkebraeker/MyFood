@@ -53,7 +53,7 @@ namespace MyFood.App.ViewModels
         Id = item.Id;
         Text = item.Text;
         Description = item.Description;
-                Ablaufdatum = item.;
+                Ablaufdatum = item.Ablaufdatum;
             }
       catch (Exception)
       {
