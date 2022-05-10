@@ -42,7 +42,6 @@
                     </Label.FormattedText>
                 </Label>
                 <Button Margin="0,10,0,0" Text="Kamera öffnen - TBD"
-                        Command="{Binding OpenWebCommand}"
                         BackgroundColor="#F7A51B"
                         TextColor="White" />
             </StackLayout>

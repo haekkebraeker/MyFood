@@ -1,10 +1,13 @@
-﻿using Foundation;
+﻿/*using Foundation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UIKit;
 using MyFood.App.Services;
+using System.Threading.Tasks;
+using Firebase.Auth;
+using System.Runtime.CompilerServices;
 
 [assembly: Dependency(typeof(MyFood.iOS.Services.FirebaseAuthentication))]
 namespace MyFood.App.iOS.Services
@@ -83,4 +86,4 @@ namespace MyFood.App.iOS.Services
       }
     }
   }
-}
+} */
