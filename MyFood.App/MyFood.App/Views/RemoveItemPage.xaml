@@ -7,8 +7,10 @@
         <StackLayout Spacing="3" Padding="15">
             <Label Text="Name des Artikels" FontSize="Medium" />
             <Entry Text="{Binding Text, Mode=TwoWay}" FontSize="Medium" />
-            <Label Text="EAN" FontSize="Medium" />
-            <Editor Text="{Binding Description, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
+            <Label Text="Description" FontSize="Medium" />
+            <Editor Text="{Binding EAN, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
+            <Label Text="Anzahl" FontSize="Medium" />
+            <Editor Text="{Binding Anzahl}" Keyboard="Numeric"/>
             <Label Text="Ablaufdatum" FontSize="Medium" />
             <DatePicker Date="{Binding Ablaufdatum}" />
             <StackLayout Orientation="Horizontal">

@@ -8,6 +8,7 @@ namespace MyFood.App.ViewModels
     {
         private string text;
         private string description;
+        private int anzahl;
         private DateTime ablaufdatum;
 
         public RemoveItemViewModel()
@@ -28,6 +29,11 @@ namespace MyFood.App.ViewModels
         {
             get => text;
             set => SetProperty(ref text, value);
+        }
+        public int Anzahl
+        {
+            get => anzahl;
+            set => SetProperty(ref anzahl, value);
         }
 
         public string Description
@@ -56,7 +62,7 @@ namespace MyFood.App.ViewModels
             {
                 Id = Guid.NewGuid().ToString(),
                 Text = Text,
-                Description = Description
+                EAN = Description
             };
 
             await DataStore.AddItemAsync(newItem);
