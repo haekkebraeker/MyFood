@@ -7,7 +7,7 @@ namespace MyFood.App.ViewModels
     public class RemoveItemViewModel : BaseViewModel
     {
         private string text;
-        private string description;
+        private string eAN;
         private int anzahl;
         private DateTime ablaufdatum;
 
@@ -22,7 +22,7 @@ namespace MyFood.App.ViewModels
         private bool ValidateSave()
         {
             return !String.IsNullOrWhiteSpace(text)
-                && !String.IsNullOrWhiteSpace(description);
+                && !String.IsNullOrWhiteSpace(eAN);
         }
 
         public string Text
@@ -36,10 +36,10 @@ namespace MyFood.App.ViewModels
             set => SetProperty(ref anzahl, value);
         }
 
-        public string Description
+        public string EAN
         {
-            get => description;
-            set => SetProperty(ref description, value);
+            get => eAN;
+            set => SetProperty(ref eAN, value);
         }
         public DateTime Ablaufdatum
         {
@@ -62,7 +62,9 @@ namespace MyFood.App.ViewModels
             {
                 Id = Guid.NewGuid().ToString(),
                 Text = Text,
-                EAN = Description
+                EAN = eAN,
+                Ablaufdatum = Ablaufdatum,
+                Anzahl = anzahl
             };
 
             await DataStore.AddItemAsync(newItem);
