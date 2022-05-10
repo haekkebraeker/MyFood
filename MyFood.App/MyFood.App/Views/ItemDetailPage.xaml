@@ -7,8 +7,10 @@
     <StackLayout Spacing="20" Padding="15">
         <Label Text="Name:" FontSize="Medium" />
         <Label Text="{Binding Text}" FontSize="Small"/>
-        <Label Text="Description:" FontSize="Medium" />
+        <Label Text="EAN:" FontSize="Medium" />
         <Label Text="{Binding Description}" FontSize="Small"/>
+        <Label Text="Anzahl:" FontSize="Medium" />
+        <Label Text="{Binding Anzahl}" FontSize="Small"/>
         <Label Text="Ablaufdatum:" FontSize="Medium" />
         <Label Text="{Binding Ablaufdatum}" FontSize="Small"/>
     </StackLayout>
