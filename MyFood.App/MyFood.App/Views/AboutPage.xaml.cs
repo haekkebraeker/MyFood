@@ -11,5 +11,10 @@ namespace MyFood.App.Views
     {
       InitializeComponent();
     }
-  }
+
+        async void Button_Clicked(System.Object sender, System.EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NewItemPage());
+        }
+    }
 }
