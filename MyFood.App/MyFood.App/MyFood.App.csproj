@@ -12,9 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\MyFood\MyFood.csproj" />
-  </ItemGroup>
-  <ItemGroup>
     <None Remove="ZXing.Net.Mobile" />
   </ItemGroup>
 </Project>

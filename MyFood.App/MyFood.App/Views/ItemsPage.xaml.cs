@@ -12,21 +12,21 @@ using Xamarin.Forms.Xaml;
 
 namespace MyFood.App.Views
 {
-  public partial class ItemsPage : ContentPage
-  {
-    ItemsViewModel _viewModel;
-
-    public ItemsPage()
+    public partial class ItemsPage : ContentPage
     {
-      InitializeComponent();
+        ItemsViewModel _viewModel;
 
-      BindingContext = _viewModel = new ItemsViewModel();
-    }
+        public ItemsPage()
+        {
+            InitializeComponent();
 
-    protected override void OnAppearing()
-    {
-      base.OnAppearing();
-      _viewModel.OnAppearing();
+            BindingContext = _viewModel = new ItemsViewModel();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            _viewModel.OnAppearing();
+        }
     }
-  }
 }
