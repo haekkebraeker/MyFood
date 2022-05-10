@@ -12,7 +12,8 @@ namespace MyFood.App.ViewModels
     private string itemId;
     private string text;
     private string description;
-    public string Id { get; set; }
+        private DateTime ablaufdatum;
+        public string Id { get; set; }
 
     public string Text
     {
@@ -24,6 +25,11 @@ namespace MyFood.App.ViewModels
     {
       get => description;
       set => SetProperty(ref description, value);
+    }
+    public DateTime Ablaufdatum
+    {
+      get => ablaufdatum;
+      set => SetProperty(ref ablaufdatum, value);
     }
 
     public string ItemId
@@ -47,7 +53,8 @@ namespace MyFood.App.ViewModels
         Id = item.Id;
         Text = item.Text;
         Description = item.Description;
-      }
+                Ablaufdatum = item.;
+            }
       catch (Exception)
       {
         Debug.WriteLine("Failed to Load Item");

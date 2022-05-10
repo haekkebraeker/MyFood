@@ -14,6 +14,14 @@ namespace MyFood.App
       Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
       Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
     }
+        /*
+        void ZXingScannerView_OnScanResult(ZXing.Result result)
+        {
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                scanResultText.Text = result.Text + " (type: " + result.BarcodeFormat.ToString() + ")";
+            });
+        }*/
 
-  }
+    }
 }

@@ -11,8 +11,9 @@ namespace MyFood.App.ViewModels
   {
     private string text;
     private string description;
+        private DateTime ablaufdatum;
 
-    public NewItemViewModel()
+        public NewItemViewModel()
     {
       SaveCommand = new Command(OnSave, ValidateSave);
       CancelCommand = new Command(OnCancel);
@@ -22,9 +23,9 @@ namespace MyFood.App.ViewModels
 
     private bool ValidateSave()
     {
-      return !String.IsNullOrWhiteSpace(text)
-          && !String.IsNullOrWhiteSpace(description);
-    }
+            return !String.IsNullOrWhiteSpace(text)
+                && !String.IsNullOrWhiteSpace(description);
+        }
 
     public string Text
     {
@@ -36,9 +37,14 @@ namespace MyFood.App.ViewModels
     {
       get => description;
       set => SetProperty(ref description, value);
-    }
+        }
+        public DateTime Ablaufdatum
+        {
+            get => ablaufdatum;
+            set => SetProperty(ref ablaufdatum, value);
+        }
 
-    public Command SaveCommand { get; }
+        public Command SaveCommand { get; }
     public Command CancelCommand { get; }
 
     private async void OnCancel()
