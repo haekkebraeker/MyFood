@@ -34,5 +34,7 @@
 	<string>MyFood.App</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Wir benötigen Zugriff auf deine Kamera, um die Barcodes scannen zu können</string>
 </dict>
 </plist>

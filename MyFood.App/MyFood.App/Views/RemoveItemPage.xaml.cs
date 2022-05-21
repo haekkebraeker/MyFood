@@ -16,5 +16,9 @@ namespace MyFood.App.Views
             InitializeComponent();
             BindingContext = new RemoveItemViewModel(); 
         }
+
+        void Button_Clicked(System.Object sender, System.EventArgs e)
+        {
+        }
     }
 }

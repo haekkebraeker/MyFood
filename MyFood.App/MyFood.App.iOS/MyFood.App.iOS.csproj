@@ -145,6 +145,9 @@
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="ZXing.Net.Mobile.Forms">
+      <Version>2.4.1</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -153,7 +156,7 @@
       <Name>MyFood</Name>
     </ProjectReference>
     <ProjectReference Include="..\MyFood.App\MyFood.App.csproj">
-      <Project>{8ABC25D8-8614-4E5C-952C-C05EBBB1F506}</Project>
+      <Project>{31281DBA-263E-478A-9DD3-C058BFB7A0BB}</Project>
       <Name>MyFood.App</Name>
     </ProjectReference>
   </ItemGroup>
