@@ -13,7 +13,7 @@ namespace MyFood.App.Views
   public partial class NewItemPage : ContentPage
   {
     public Item Item { get; set; }
-        public string EAN { get; set; }
+        private string EAN;
 
     public NewItemPage()
     {
@@ -34,7 +34,7 @@ namespace MyFood.App.Views
                 Device.BeginInvokeOnMainThread(async () =>
                 {
                     await Navigation.PopModalAsync();
-                    EAN = result.Text;
+                    EANEntry.Text = result.Text;
                 });
             };
             // Navigate to our scanner page
