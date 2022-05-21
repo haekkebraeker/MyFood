@@ -1,9 +1,12 @@
 ﻿using MyFood.App.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
+using MyFood.App.JSON;
 
 namespace MyFood.App.ViewModels
 {
@@ -12,7 +15,7 @@ namespace MyFood.App.ViewModels
         private string text;
         private string EAN;
         private int anzahl;
-        private DateTime ablaufdatum;
+        private DateTime ablaufdatum = DateTime.Today;
 
         public NewItemViewModel()
         {
@@ -69,6 +72,21 @@ namespace MyFood.App.ViewModels
                 Ablaufdatum = Ablaufdatum,
                 Anzahl = Anzahl
             };
+
+            string ProductJsonpath = "./JSON/Product.json";
+            if (File.Exists(ProductJsonpath))
+            {
+                File.Create(ProductJsonpath);
+            }
+            string json = File.ReadAllText(ProductJsonpath);
+            var Json = JsonConvert.DeserializeObject<ProductListJSON>(json);
+            Product product = new Product();
+            product.ablaufdatum = Ablaufdatum;
+            product.anzahl = Anzahl;
+            product.eAN = EAN;
+            product.text = text;
+            Json.ProductJSONs.Add(product);
+            File.WriteAllText(ProductJsonpath, JsonConvert.SerializeObject(Json, Formatting.Indented));
 
             await DataStore.AddItemAsync(newItem);
 

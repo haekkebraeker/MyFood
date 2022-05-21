@@ -1,5 +1,8 @@
 ﻿using System;
+using System.IO;
+using MyFood.App.JSON;
 using MyFood.App.Models;
+using Newtonsoft.Json;
 using Xamarin.Forms;
 
 namespace MyFood.App.ViewModels
@@ -68,6 +71,17 @@ namespace MyFood.App.ViewModels
             };
 
             await DataStore.AddItemAsync(newItem);
+
+
+            string ProductJsonpath = "./JSON/Product.json";
+            if (File.Exists(ProductJsonpath))
+            {
+                File.Create(ProductJsonpath);
+            }
+            string json = File.ReadAllText(ProductJsonpath);
+            var Json = JsonConvert.DeserializeObject<ProductListJSON>(json);
+            //Remove here
+
 
             // This will pop the current page off the navigation stack
             await Shell.Current.GoToAsync("..");
