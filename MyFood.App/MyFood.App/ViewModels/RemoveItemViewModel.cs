@@ -24,8 +24,7 @@ namespace MyFood.App.ViewModels
 
         private bool ValidateSave()
         {
-            return !String.IsNullOrWhiteSpace(text)
-                && !String.IsNullOrWhiteSpace(eAN);
+            return !String.IsNullOrWhiteSpace(text);
         }
 
         public string Text
@@ -73,8 +72,8 @@ namespace MyFood.App.ViewModels
             await DataStore.AddItemAsync(newItem);
 
 
-            string ProductJsonpath = "./JSON/Product.json";
-            if (File.Exists(ProductJsonpath))
+            string ProductJsonpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),"Product.json");
+            if (!File.Exists(ProductJsonpath))
             {
                 File.Create(ProductJsonpath);
             }

@@ -27,8 +27,7 @@ namespace MyFood.App.ViewModels
 
         private bool ValidateSave()
         {
-            return !String.IsNullOrWhiteSpace(text)
-                && !String.IsNullOrWhiteSpace(EAN);
+            return !String.IsNullOrWhiteSpace(text);
         }
 
         public string Text
@@ -73,8 +72,8 @@ namespace MyFood.App.ViewModels
                 Anzahl = Anzahl
             };
 
-            string ProductJsonpath = "./JSON/Product.json";
-            if (File.Exists(ProductJsonpath))
+            string ProductJsonpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Product.json");
+            if (!File.Exists(ProductJsonpath))
             {
                 File.Create(ProductJsonpath);
             }

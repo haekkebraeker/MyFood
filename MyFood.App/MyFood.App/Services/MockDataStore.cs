@@ -1,6 +1,7 @@
 ﻿using MyFood.App.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -12,6 +13,11 @@ namespace MyFood.App.Services
 
         public MockDataStore()
         {
+            string ProductJsonpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Product.json");
+            if (!File.Exists(ProductJsonpath))
+            {
+                File.Create(ProductJsonpath);
+            }
             items = new List<Item>()
             {
                 new Item { Id = Guid.NewGuid().ToString(), Text = "Kartoffeln", EAN="4104420138780", Ablaufdatum=DateTime.Today.AddDays(3), Anzahl=2 },
